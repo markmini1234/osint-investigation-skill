@@ -47,9 +47,19 @@ Read [SKILL.md](SKILL.md) for the operating rules. Detailed material is split in
 - [references/toolchain.md](references/toolchain.md) — 29-tool catalog;
 - [references/evidence.md](references/evidence.md) — scope, source log, confidence, and report templates.
 
-## Optional dependencies
+## Case folder
 
-Planning and reporting work without external tools. Collection channels need the relevant executables, for example:
+For third-party or multi-step work, create a case folder with the four templates (`scope.yaml`, `sources.csv`, `notes.md`, `report.md`):
+
+```bash
+bash scripts/init_case.sh CASE_NAME [BASE_DIR]
+```
+
+Self-audits of your own assets only need a single confirmation of target and ownership.
+
+## Dependencies
+
+Platform collection depends on the `agent-reach` skill; run `agent-reach doctor` at the start of each investigation. Planning and reporting work without external tools. Collection channels need the relevant executables, for example:
 
 ```bash
 agent-reach doctor
@@ -57,6 +67,10 @@ command -v mcporter gh yt-dlp bird
 ```
 
 Some channels require a login, cookies, API key, or paid service. The skill records unavailable channels as gaps rather than fabricating results.
+
+## Login sessions
+
+Use only your own accounts and sessions, and only to read public content. Never use a session to view a target's private content, contact a target, or bypass a login wall.
 
 ## Boundaries
 
