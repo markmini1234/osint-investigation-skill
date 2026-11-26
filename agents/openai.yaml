@@ -1,0 +1,4 @@
+interface:
+  display_name: "OSINT Investigation"
+  short_description: "Authorized OSINT workflow and toolchain"
+  default_prompt: "Plan and run an authorized OSINT investigation with source tracking."
