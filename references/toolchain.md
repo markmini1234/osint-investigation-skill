@@ -54,3 +54,16 @@ These tools support the workflow in `SKILL.md`; they do not replace authorizatio
 ## Command safety
 
 Install commands and flags change. Prefer the project's current README, release page, or official documentation over copied snippets. Avoid blind `curl | bash` installs when a package manager, signed release, container image, or pinned version is available. Run tools in a virtual environment or container where practical.
+
+## Tool properties (quick reference)
+
+| Tool | Mode | Needs key or login | Sends traffic to target |
+|---|---|---|---|
+| Sherlock, Maigret, social-analyzer, Blackbird, socialscan | queries public sites | no | no |
+| holehe, Ignorant | third-party registration checks | no | no |
+| h8mail, Mosint, HIBP API | passive | API keys | no |
+| GHunt | authenticated | own Google login | no |
+| theHarvester, crt.sh, Wayback tools, gau, waymore | passive | some sources need keys | no |
+| Amass active mode, Photon, SpiderFoot, Recon-ng, Shodan/Censys scans | active | often | yes |
+
+Active rows need explicit per-run confirmation. Source: https://osinttools.beacon.host/llms.txt. Host is macOS: prefer pipx, uv or Docker, and avoid piping curl to bash.

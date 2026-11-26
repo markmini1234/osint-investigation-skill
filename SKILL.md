@@ -1,6 +1,6 @@
 ---
 name: osint-investigation
-description: Plan and run authorized OSINT investigations for a username, email, domain, phone, organization, or public profile. Combines public-platform collection with a specialist tool catalog, source logging, and verification rules. Use for security research, due diligence, fraud triage, brand protection, journalism, or self-audit; requires a lawful basis and explicit scope, and must not be used for stalking, doxxing, or harassment.
+description: Plan and run authorized OSINT investigations for a username, email, domain, phone, organization, or public profile. Combines public-platform collection with a specialist tool catalog, source logging, and verification rules. Use for security research, due diligence, fraud triage, brand protection, journalism, or self-audit (also 背调, 尽调, 查账号, 查域名, 查邮箱, 小红书, 微博, B站, 公开信息核查); requires a lawful basis and explicit scope, and must not be used for stalking, doxxing, or harassment.
 metadata:
   short-description: Authorized OSINT workflow and toolchain
 ---
@@ -8,6 +8,21 @@ metadata:
 # OSINT Investigation
 
 Combine public-platform collection with a disciplined investigation workflow: scope, passive collection, pivots, verification, and evidence. The objective is a defensible answer, not maximum data collection.
+
+## Prerequisites
+
+This skill depends on the installed `agent-reach` skill for platform collection. Run `agent-reach doctor` once at the start and record unavailable channels as gaps. Do not copy agent-reach commands into this skill; read its references for channel details.
+
+The tool catalog is derived from <https://osinttools.beacon.host/llms.txt>. Re-check install lines against each tool's official README before running, and ask the user before installing anything.
+
+## Scope tiers
+
+- **Self-audit or own assets**: confirm target and ownership once; the full questionnaire is not required.
+- **Third party or any person**: require every item in the scope gate below and record them in `scope.yaml`. Create the case folder with `bash scripts/init_case.sh CASE_NAME`.
+
+## Login sessions
+
+Use only the user's own accounts and sessions, and only to read public content. Never use a session to view a target's private content, send requests to a target, or bypass a login wall.
 
 ## Gate on scope
 
