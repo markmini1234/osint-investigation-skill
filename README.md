@@ -11,6 +11,36 @@ This skill combines:
 
 The tool catalog is based on [osinttools.beacon.host](https://osinttools.beacon.host/). The skill does not bundle credentials, cookies, API keys, or personal data.
 
+## Features
+
+### Scope gate before any collection
+Every investigation starts by confirming the exact target, the question to answer, the lawful basis, the allowed actions (passive only, or also crawling/enumeration/contact), and where findings are stored. Self-audits of your own assets need only one confirmation; third-party targets need all five items, recorded in `scope.yaml`. If the target is a private person with no lawful basis, the skill stops and offers safer alternatives.
+
+### 29 specialist tools in four levels
+| Level | Focus | Tools |
+|---|---|---|
+| 1 | Usernames and public profiles | OSINT Framework, Sherlock, Maigret, social-analyzer, Blackbird, socialscan |
+| 2 | Emails and phones | holehe, h8mail, GHunt, Mosint, Have I Been Pwned, PhoneInfoga, Ignorant |
+| 3 | Domains, history, files | theHarvester, Amass, waybackurls, gau, waymore, Wayback Machine, crt.sh, ExifTool, Photon |
+| 4 | Internet-wide search and frameworks | Shodan, Censys, urlscan.io, SpiderFoot, Recon-ng, Maltego Community, sn0int |
+
+A quick-reference table marks which tools are passive, which need keys or logins, and which send traffic to the target. Active tools need explicit per-run confirmation.
+
+### Public-platform collection
+Commands adapted from agent-reach cover web pages and search (Jina Reader, Exa), X/Twitter, Reddit, GitHub, YouTube, Bilibili, WeChat articles, Weibo, Xiaohongshu, Douyin, V2EX, Xiaoyuzhou podcasts, Xueqiu, LinkedIn and RSS. Unavailable channels are logged as gaps, never presented as checked. A 403, CAPTCHA or login wall is treated as a stop signal.
+
+### Verification rules
+- A username hit is not an identity; a breach or registration hit is not ownership.
+- Attribution needs at least two independent signals.
+- Observed fact, source claim and inference are kept separate.
+- Negative results are recorded as findings.
+
+### Evidence and reporting
+A four-level confidence rubric (confirmed, probable, possible, unverified), an attribution checklist, a source log with URL, retrieval time and exact excerpt, and a findings-memo template. `scripts/init_case.sh` generates the case folder in one command.
+
+### Chinese-language triggers
+The skill also activates on requests such as 背调, 尽调, 查账号, 查域名, 查邮箱, 小红书, 微博 and B站.
+
 ## Install
 
 Clone this repository directly into the Codex skills directory:
